@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- Main Content -->
+<div class="container my-5">
+    <h1 class="text-center mb-4">Your To-Do List</h1>
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Task</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Buy groceries</td>
+          <td>2024-07-20</td>
+          <td>Pending</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Edit</button>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Finish project report</td>
+          <td>2024-07-22</td>
+          <td>In Progress</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Edit</button>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Book flight tickets</td>
+          <td>2024-07-25</td>
+          <td>Completed</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Edit</button>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary btn-lg" href="{% url 'add' %}">Add_Task</a>
+  </div>
+
+  
+
+  
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+mera_app
+
+{% endblock %}
+
+{% block head %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #p{
+    
+        
+        margin-left: 33rem;
+       
+    }
+    /* python manage.py runserver */
+  </style>
+
+
+{% endblock %}
+
+
+{% block body %}
+<!-- Main Content -->
+<div class="container text-center my-5 ">
+  <h1>Welcome My To-Do Application</h1>
+  <p>Manage your tasks efficiently and effortlessly.</p>
+</div>
+<div>
+  <b><a id="p" class="btn btn-primary btn-lg" href="{% url 'todo' %}" >Get Started</a></b>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}
