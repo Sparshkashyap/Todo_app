@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %}
+todo
+{% endblock %}
 {% block body %}
-
 <!-- Main Content -->
 <div class="container my-5">
-    <h1 class="text-center mb-4">My To-Do List</h1>
+    <h1 class="text-center mb-4">My To-Do List({{ todos.count }})</h1>
     <table class="table table-hover">
       <thead class="thead-light">
+     
         <tr>
           <th scope="col">#</th>
           <th scope="col">Task</th>
@@ -15,38 +18,26 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
+      {% for todo in todos %}
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Buy groceries</td>
-          <td>2024-07-20</td>
-          <td>Pending</td>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{todo.task}}</td>
+          <td>{{todo.created_at}}</td>
+          <td >
+            <a href="{% url 'mark_complete' todo.id %}" class="btn btn-outline-sm btn-outline-success">Mark completed</a>
+
+          </td>
           <td>
-            <button class="btn btn-sm btn-warning">Edit</button>
-            <button class="btn btn-sm btn-danger">Delete</button>
+            <a href="{% url 'update_todo' todo.id %}"class="btn btn-sm btn-warning">Update</a>
+            <a href="{% url 'delete_todo' todo.id %}" class="btn btn-sm btn-danger">Delete</a>
+            
           </td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Finish project report</td>
-          <td>2024-07-22</td>
-          <td>In Progress</td>
-          <td>
-            <button class="btn btn-sm btn-warning">Edit</button>
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Book flight tickets</td>
-          <td>2024-07-25</td>
-          <td>Completed</td>
-          <td>
-            <button class="btn btn-sm btn-warning">Edit</button>
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </td>
-        </tr>
       </tbody>
+      {% endfor %}
+
     </table>
     <a class="btn btn-primary btn-lg" href="{% url 'add' %}">Add Task</a>
   </div>

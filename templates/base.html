@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-{% block head %}
+
 <head>
-  {% block title %}
+  {% block head %}
+  
   <title>
+    {% block title %} 
+    {% endblock %}
   </title>
-  {% endblock %}
+  
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    #p{
-    
-        
-        margin-left: 33rem;
-        text-decoration: none;
-        font-size: 1rem;
-        color: black;
-        padding: 1rem;
-        background-color: rgb(26, 130, 141,0.5);
-        border-radius: 10px;
-    }
-    /* python manage.py runserver */
-  </style>
+
+  {% endblock %}
 </head>
-{% endblock %}
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,10 +25,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link btn btn-primary text-white" href="#">Home</a>
+          <a class="nav-link btn btn-primary text-white" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-secondary text-white ml-2" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white ml-2" href="{% url 'profile_pic' %}">Upload profile</a>
         </li>
       </ul>
     </div>
@@ -46,7 +40,7 @@
   {% endblock %}
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3">
+  <footer class="bg-light text-center py-3"style="margin-top:13rem;">
     <p>&copy; 2024 To-Do App. All rights reserved.</p>
   </footer>
 
