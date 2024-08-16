@@ -45,8 +45,9 @@
 <body>
     <div class="container">
         <h1>Upload Profile Picture</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="profilePic" accept="image/*" required>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="profile_pic" required>
             <br>
             <button type="submit">Upload</button>
         </form>
